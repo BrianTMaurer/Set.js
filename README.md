@@ -23,6 +23,8 @@ Method | Description | Runtime
 `A.isEmpty()` | Returns true if empty, false otherwise. | Θ(1) 
 `A.remove(key)` | Returns the Set A without the element with the given key. | Θ(lg n) 
 `A.size()` | Returns the size of the Set A. | Θ(1) 
+`A.slice(begin_key[, end_key])` | Returns a slice of the Set. | Θ(Array.slice())
+`A.splice(key, howMany[, element1[, ...[, elementN]]]))` | Works like Array.splice but key based. Inserts new elements in sorted order. | Θ(Array.splice + lg n for inserts) 
 `A.subset(B)` | Returns true if (A ⊆ B) aka {x: ∀x∈A x∈B}, otherwise false. | Θ(n) 
 `A.superset(B)` | Returns true if (A ⊇ B) aka {x: ∀x∈B x∈A}, otherwise false | Θ(n) 
 `A.symmetricDifference(B)` | Returns a new Set(A ∆ B) = {x: (x∈A ⋁ x∈B) ∧ !(x∈A ∧ x∈B)} | Θ(n) 

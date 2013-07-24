@@ -240,6 +240,51 @@ Set = (function() {
   };
 
   /*
+  	Similar functionalty to array.slice(begin[, end]) only key based rather than index based.
+  	i.e. if you have a set of objects { name: "bob", ..., name: "catrina", ..., name: "zelda"}
+  	you could slice from "catrina" to "zelda". Also, a new set is returned rather than an array.
+  */
+
+
+  Set.prototype.slice = function() {
+    var begin, end, sliced_elements;
+    if (arguments.length === 1) {
+      begin = this.find(arguments[0]);
+      sliced_elements = this.elements.slice(begin);
+    }
+    if (arguments.length === 2) {
+      begin = this.find(arguments[0]);
+      end = this.find(arguments[1]);
+      sliced_elements = this.elements.slice(begin, end);
+    }
+    return new Set(sliced_elements);
+  };
+
+  /*
+  	Similar functionality to array.splice(index, howMany[, element1[, ...[, elementN]]]). However, elements will be inserted in sorted order, you will splice at a given key rather than an array index, and this set is returned, not an array.
+  */
+
+
+  Set.prototype.splice = function() {
+    var ele, index, k;
+    if (arguments.length === 1) {
+      index = this.find(arguments[0]);
+      this.elements.splice(index);
+    }
+    if (arguments.length > 1) {
+      index = this.find(arguments[0]);
+      this.elements.splice(index, arguments[1]);
+      delete arguments[0];
+      delete arguments[1];
+      for (k in arguments) {
+        ele = arguments[k];
+        this.insert(ele);
+      }
+    }
+    return this;
+  };
+
+  /*
   	(A ⊆ B) = {x: ∀x∈A x∈B}
   */
 

@@ -11,10 +11,4 @@ console.log(s2 = new Set([3, 4, 5, 6]));
 
 console.log(s3 = new Set([3, 4, 9]));
 
-console.log(s1.union(s2).intersect(s3));
-
-console.log(s1.intersect(s2).union(s3));
-
-console.log(s1.union(s2.intersect(s3)));
-
-console.log(s1.intersect(s2.union(s3)));
+console.log(s1.slice(1));
