@@ -90,12 +90,18 @@ s8.insert({name: 'xx'});
 s8.remove("bb"); // -> { {name: 'AA'}, {name: 'aaa'}, {name: 'BBB'}, {name:"xx"} }
 s8.size(); // -> 4
 
-// You can chain operations:
 s1 = new Set([1,2,3,4]);
 s2 = new Set([3,4,5,6]);
 s3 = new Set([3,4,9]);
 
+// You can chain operations.
 s1.intersect(s2).intersect(s3); // -> { 3, 4 }
+
+// You can mix up function chain order and use function composition.
+s1.union(s2).intersect(s3); // -> { 3, 4 }
+s1.intersect(s2).union(s3); // -> { 3, 4, 9 }
+s1.union(s2.intersect(s3)); // -> { 1, 2, 3, 4 }
+s1.intersect(s2.union(s3)); // -> { 3, 4 }
 
 ```
 
