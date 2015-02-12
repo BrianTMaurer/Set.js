@@ -1,5 +1,7 @@
 # Set.js - Efficient Sets for Javascript
 
+**This Repository is now significantly out of date. Use [ES6 Sets](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) (Or an ES6 Set polyfill).**
+
 *Author*: Brian T Maurer • [Website](https://briantmaurer.com)
 
 This is simply a library to manage sets of anything in javascript.
@@ -14,21 +16,21 @@ Given `A = new Set(...)`, and `B = new Set(...)`:
 
 Method | Description | Runtime
 -------: | :--------------- | :---------
-`A.difference(B)` | Returns a new Set(A \ B) = {x: x∈A ∧ x∉B} | Θ(n)  
-`A.find(key)` | Returns the array index for the element with the given key. Returns -1 if the corresponding element is found. | Θ(lg n) 
-`A.get(key)` | Returns the element with the given key. Returns -1 if the corresponding element is not found. | Θ(lg n) 
-`A.has(key)` | Returns true if an element with the given key is in the Set A, false otherwise. | Θ(lg n) 
-`A.insert(ele)` | Returns the Set A with the newly added element. | Θ(lg n) 
-`A.intersect(B)` | Returns a new Set(A ⋂ B) = {x: x∈A ∧ x∈B} | Θ(n) 
-`A.isEmpty()` | Returns true if empty, false otherwise. | Θ(1) 
-`A.remove(key)` | Returns the Set A without the element with the given key. | Θ(lg n) 
-`A.size()` | Returns the size of the Set A. | Θ(1) 
+`A.difference(B)` | Returns a new Set(A \ B) = {x: x∈A ∧ x∉B} | Θ(n)
+`A.find(key)` | Returns the array index for the element with the given key. Returns -1 if the corresponding element is found. | Θ(lg n)
+`A.get(key)` | Returns the element with the given key. Returns -1 if the corresponding element is not found. | Θ(lg n)
+`A.has(key)` | Returns true if an element with the given key is in the Set A, false otherwise. | Θ(lg n)
+`A.insert(ele)` | Returns the Set A with the newly added element. | Θ(lg n)
+`A.intersect(B)` | Returns a new Set(A ⋂ B) = {x: x∈A ∧ x∈B} | Θ(n)
+`A.isEmpty()` | Returns true if empty, false otherwise. | Θ(1)
+`A.remove(key)` | Returns the Set A without the element with the given key. | Θ(lg n)
+`A.size()` | Returns the size of the Set A. | Θ(1)
 `A.slice(begin_key[, end_key])` | Returns a slice of the Set. | Θ(Array.slice())
-`A.splice(key, howMany[, ele1[,...[, ele]]]))` | Works like Array.splice but key based. Inserts new elements in sorted order. | Θ(Array.splice + lg n for inserts) 
-`A.subset(B)` | Returns true if (A ⊆ B) aka {x: ∀x∈A x∈B}, otherwise false. | Θ(n) 
-`A.superset(B)` | Returns true if (A ⊇ B) aka {x: ∀x∈B x∈A}, otherwise false | Θ(n) 
-`A.symmetricDifference(B)` | Returns a new Set(A ∆ B) = {x: (x∈A ⋁ x∈B) ∧ !(x∈A ∧ x∈B)} | Θ(n) 
-`A.union(B)` | Returns a new Set(A ∪ B) = {x: x∈A ∨ x∈B} | Θ(n) 
+`A.splice(key, howMany[, ele1[,...[, ele]]]))` | Works like Array.splice but key based. Inserts new elements in sorted order. | Θ(Array.splice + lg n for inserts)
+`A.subset(B)` | Returns true if (A ⊆ B) aka {x: ∀x∈A x∈B}, otherwise false. | Θ(n)
+`A.superset(B)` | Returns true if (A ⊇ B) aka {x: ∀x∈B x∈A}, otherwise false | Θ(n)
+`A.symmetricDifference(B)` | Returns a new Set(A ∆ B) = {x: (x∈A ⋁ x∈B) ∧ !(x∈A ∧ x∈B)} | Θ(n)
+`A.union(B)` | Returns a new Set(A ∪ B) = {x: x∈A ∨ x∈B} | Θ(n)
 
 ## Examples
 
@@ -54,7 +56,7 @@ var s7 = new Set([{"name": "bb"}, {"name": "AA"},
 var s8 = new Set(
 	[{"name": "bb"}, {"name": "AA"}, {"name": "aaa"}, {"name": "BBB"}]
     , "name"
-    , function(ele){ ele.toLowerCase(); } 
+    , function(ele){ ele.toLowerCase(); }
 ); // -> {name:'AA' }, {name:'aaa'}, {name:'bb'}, { name:'BBB'} }
 ```
 
@@ -80,7 +82,7 @@ s1.union(s3); // -> { 1, 2, 3, 4, 5, 6, 15, 30 }
 var s8 = new Set(
 	[{"name": "bb"}, {"name": "AA"}, {"name": "aaa"}, {"name": "BBB"}]
     , "name"
-    , function(ele){ ele.toLowerCase(); } 
+    , function(ele){ ele.toLowerCase(); }
 ); // -> { {name: 'AA'}, {name: 'aaa'}, {name: 'bb'}, {name: 'BBB'} }
 
 s8.find("bb"); // -> 2
